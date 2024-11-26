@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Recommendation</title>
+  <script src="popup.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+  <style>
+    body {
+      width: 280px;
+      height: 600px;
+      margin: 0;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #icon {
+      width: 128px;
+      height: 128px;
+      margin-bottom: 5px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      font-size: 14px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #playlist {
+      width: 90%;
+      margin-top: 15px;
+      padding: 8px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow-y: auto;
+      max-height: 200px;
+    }
+    .playlist-item {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    .playlist-item:hover {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: #f0f0f0;
+    }
+    #filterSelect, #viewCountInput {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    #feedbackContainer {
+      margin-top: 20px;
+      text-align: center;
+    }
+    #thumbsUpButton, #thumbsDownButton {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+    #thumbsUpButton {
+      background-color: blue;
+    }
+    #thumbsDownButton {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <img id="icon" src="icon_main.png" alt="Extension Icon">
+  <h1>Music Recommender</h1>
+  <select id="filterSelect">
+    <option value="">No Filter</option>
+    <option value="7days">Last 7 Days</option>
+    <option value="30days">Last 30 Days</option>
+    <option value="1year">Last 1 Year</option>
+    <option value="3years">Last 3 Years</option>
+    <option value="10years">Last 10 Years</option>
+  </select>
+  <input type="number" id="viewCountInput" placeholder="Enter max view count" min="0">
+  <button id="randomButton">Random Song</button>
+  <button id="playlistButton">View Playlist</button>
+  <div id="playlist" style="display: none;"></div>
+  <div id="feedbackContainer">
+    <p id="feedbackQuestion" style="display: none;">방금 노래가 마음에 드셨나요?</p>
+    <button id="thumbsUpButton" style="display: none;">좋아요</button>
+    <button id="thumbsDownButton" style="display: none;">싫어요</button>
+  </div>
+</body>
+</html>
